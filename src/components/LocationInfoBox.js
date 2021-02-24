@@ -1,9 +1,6 @@
-import Expire from './GoAway'
-
 const LocationInfoBox = ({ info }) => {
 
   return (
-    <Expire delay="5000">
     <div className="location-info">
       <h2>Event Location Info</h2>
       <ul>
@@ -11,7 +8,6 @@ const LocationInfoBox = ({ info }) => {
         <li>ID: <strong>{ info.title }</strong></li>
       </ul>
     </div>
-    </Expire>
   )
 }
 
