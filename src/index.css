@@ -5,8 +5,8 @@ body {
 }
 
 .header {
-  padding: 10px;
-  background-color: firebrick;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.6);
   color: white;
   position: fixed;
   top: 0;
@@ -15,8 +15,8 @@ body {
   z-index: 100;
 }
 
-.header h1 {
-  font-size: 25px;
+.header h1, .header h2 {
+  font-size: 20px;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -28,8 +28,8 @@ body {
   position: relative;
 }
 
-.location-icon {
-  font-size: 2rem;
+.event {
+  font-size: 1rem;
   color: red;
 }
 
@@ -48,13 +48,13 @@ body {
 
 .location-info {
   position: absolute;
-  top: 80px;
-  right: 50px;
-  width: 400px;
+  top: 120px;
+  right: 10px;
+  width: 300px;
   min-height: 200px;
   padding: 20px;
   background-color: rgba(0,0,0,0.6);
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 18px;
   color: white;
 }
