@@ -1,10 +1,9 @@
-import { Icon } from '@iconify/react'
-import locationIcon from '@iconify/icons-mdi/fire-alert'
+import { WiFire } from "weather-icons-react";
 
 const FireLocationMarker = ({ lat, lng, onClick }) => {
   return (
     <div className="location-marker" onClick={onClick}>
-      <Icon icon={locationIcon} className="location-icon" />
+      <WiFire size={30} color='red' />
     </div>
   )
 }

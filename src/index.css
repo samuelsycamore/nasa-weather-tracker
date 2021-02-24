@@ -48,11 +48,11 @@ body {
 
 .location-info {
   position: absolute;
-  top: 120px;
-  right: 10px;
-  width: 300px;
-  min-height: 200px;
-  padding: 20px;
+  top: 100px;
+  left: 10px;
+  width: 280px;
+  min-height: 150px;
+  padding: 10px 20px;
   background-color: rgba(0,0,0,0.6);
   border-radius: 5px;
   font-size: 18px;
