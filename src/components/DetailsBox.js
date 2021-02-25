@@ -1,11 +1,11 @@
 const DetailsBox = ({ info }) => {
 
   return (
-    <div className="location-info">
+    <div className="event-info">
       <h2>Event Details</h2>
       <ul>
-        <li>ID: { info.id }</li>
         <li>Name: { info.title }</li>
+        <li>ID: { info.id }</li>
       </ul>
     </div>
   )

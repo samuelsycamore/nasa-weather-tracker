@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow: hidden;
 }
 
@@ -36,11 +44,6 @@ a:hover {
   position: relative;
 }
 
-.event {
-  font-size: 1rem;
-  color: red;
-}
-
 .loader {
   display: flex;
   flex-direction: column;
@@ -49,11 +52,7 @@ a:hover {
   min-height: 100vh;
 }
 
-.loader h1 {
-  margin-top: -100px;
-}
-
-.location-info {
+.event-info {
   position: absolute;
   top: 100px;
   left: 10px;
@@ -66,11 +65,15 @@ a:hover {
   color: white;
 }
 
-.location-info ul {
+.event-info h2 {
+  line-height: 3rem;
+}
+
+.event-info ul {
   list-style-type: none;
   padding: 0;
 }
 
-.location-info li {
+.event-info li {
   padding: 5px 0;
 }

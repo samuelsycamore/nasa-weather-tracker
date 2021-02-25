@@ -20,39 +20,63 @@ const Map = ({ eventData, center, zoom }) => {
 
     // DUST AND HAZE
     if(ev.categories[0].id === 7) {
-      return <HazeLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <HazeLocationMarker 
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     // WILDFIRES
     if(ev.categories[0].id === 8) {
-      return <FireLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <FireLocationMarker
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     // FLOODS
     if(ev.categories[0].id === 9) {
-      return <FloodLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <FloodLocationMarker 
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     // SEVERE STORMS
     if(ev.categories[0].id === 10) {
-      return <StormLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <StormLocationMarker 
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     // EARTHQUAKES
     if(ev.categories[0].id === 16) {
-      return <QuakeLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <QuakeLocationMarker 
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     // SNOW
     if(ev.categories[0].id === 17) {
-      return <SnowLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <SnowLocationMarker 
+        lat={ev.geometries[0].coordinates[1]} 
+        lng={ev.geometries[0].coordinates[0]} 
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+      />
     }
 
     return null
   })
+  
 
   // GRAB API KEY FROM .ENV
-
   const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 
@@ -79,7 +103,8 @@ const Map = ({ eventData, center, zoom }) => {
   )
 }
 
-
+// SET DEFAULT LOCATION ON GOOGLE MAPS (SANTA CRUZ, CA) 
+// AND ZOOM ALL THE WAY OUT
 
 Map.defaultProps = {
   center: {
