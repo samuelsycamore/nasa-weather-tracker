@@ -49,11 +49,6 @@ const Map = ({ eventData, center, zoom }) => {
       return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
 
-    // SEA AND LAKE ICE
-    if(ev.categories[0].id === 15) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
-
     // EARTHQUAKES
     if(ev.categories[0].id === 16) {
       return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
