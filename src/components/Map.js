@@ -1,9 +1,12 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 import LocationInfoBox from './LocationInfoBox'
-import EventLocationMarker from './Markers/EventLocationMarker'
 import FireLocationMarker from './Markers/FireLocationMarker'
 import StormLocationMarker from './Markers/StormLocationMarker'
+import HazeLocationMarker from './Markers/HazeLocationMarker'
+import FloodLocationMarker from './Markers/FloodLocationMarker'
+import QuakeLocationMarker from './Markers/QuakeLocationMarker'
+import SnowLocationMarker from './Markers/SnowLocationMarker'
 
 
 // CREATE GOOGLE WORLD MAP
@@ -14,14 +17,10 @@ const Map = ({ eventData, center, zoom }) => {
 //GENERATE GEOLOCATED WEATHER MARKERS FROM NASA EONET API
 
   const eventMarkers = eventData.map(ev => {
-    // DROUGHT
-    if(ev.categories[0].id === 6) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
 
     // DUST AND HAZE
     if(ev.categories[0].id === 7) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <HazeLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
 
     // WILDFIRES
@@ -31,7 +30,7 @@ const Map = ({ eventData, center, zoom }) => {
 
     // FLOODS
     if(ev.categories[0].id === 9) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <FloodLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
 
     // SEVERE STORMS
@@ -39,36 +38,15 @@ const Map = ({ eventData, center, zoom }) => {
       return <StormLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
 
-    // WATER COLOR
-    if(ev.categories[0].id === 13) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
-
-    // LANDSLIDES
-    if(ev.categories[0].id === 14) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
-
     // EARTHQUAKES
     if(ev.categories[0].id === 16) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <QuakeLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
 
     // SNOW
     if(ev.categories[0].id === 17) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
+      return <SnowLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
     }
-
-    // TEMPERATURE EXTREMES
-    if(ev.categories[0].id === 18) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
-
-    // MANMADE
-    if(ev.categories[0].id === 19) {
-      return <EventLocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} />
-    }
-
 
     return null
   })

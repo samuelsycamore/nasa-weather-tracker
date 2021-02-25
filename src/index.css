@@ -4,9 +4,17 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  color: salmon;
+}
+
 .header {
   padding: 5px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.8);
   color: white;
   position: fixed;
   top: 0;
