@@ -1,4 +1,4 @@
-const LocationInfoBox = ({ info }) => {
+const DetailsBox = ({ info }) => {
 
   return (
     <div className="location-info">
@@ -11,4 +11,4 @@ const LocationInfoBox = ({ info }) => {
   )
 }
 
-export default LocationInfoBox
+export default DetailsBox

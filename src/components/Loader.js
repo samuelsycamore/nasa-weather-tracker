@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
     <div className="loader">
-      <h1>Fetching Data...</h1>
+      <h1>Fetching Latest Data...</h1>
     </div>
   )
 }

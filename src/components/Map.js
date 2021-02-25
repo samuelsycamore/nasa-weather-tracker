@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
-import LocationInfoBox from './LocationInfoBox'
+import DetailsBox from './DetailsBox'
 import FireLocationMarker from './Markers/FireLocationMarker'
 import StormLocationMarker from './Markers/StormLocationMarker'
 import HazeLocationMarker from './Markers/HazeLocationMarker'
@@ -60,21 +60,21 @@ const Map = ({ eventData, center, zoom }) => {
 
   return (
     <>
-    <div className="map">
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: API_KEY }}
-        defaultCenter={ center }
-        defaultZoom={ zoom }
-      >
-      { eventMarkers }
+      <div className="map">
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: API_KEY }}
+          defaultCenter={ center }
+          defaultZoom={ zoom }>
 
-      </GoogleMapReact>
+            { eventMarkers }
 
-      <div>
-        {locationInfo && <LocationInfoBox info={locationInfo} />}
+        </GoogleMapReact>
+
+        <div>
+          {locationInfo && <DetailsBox info={locationInfo} />}
+        </div>
+
       </div>
-
-    </div>
     </>
   )
 }
