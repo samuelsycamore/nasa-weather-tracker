@@ -12,68 +12,31 @@ import SnowLocationMarker from './Markers/SnowLocationMarker'
 // CREATE GOOGLE WORLD MAP
 
 const Map = ({ eventData, center, zoom }) => {
-  const [locationInfo, setLocationInfo] = useState(null)
+  const [locationInfo, setLocationInfo] = useState(null);
 
-//GENERATE GEOLOCATED WEATHER MARKERS FROM NASA EONET API
+  //GENERATE GEOLOCATED WEATHER MARKERS FROM NASA EONET API
 
-  const eventMarkers = eventData.map(ev => {
+  const eventMarkers = eventData.map((ev) => {
+    const lookup = {
+      [7]: HazeLocationMarker,
+      [8]: FireLocationMarker,
+      [9]: FloodLocationMarker,
+      [10]: StormLocationMarker,
+      [16]: QuakeLocationMarker,
+      [17]: SnowLocationMarker,
+    };
 
-    // DUST AND HAZE
-    if(ev.categories[0].id === 7) {
-      return <HazeLocationMarker 
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
+    const DetectedComponent = lookup[ev.categories[0].id];
+    if (!DetectedComponent) return null;
+
+    return (
+      <DetectedComponent
+        lat={ev.geometries[0].coordinates[1]}
+        lng={ev.geometries[0].coordinates[0]}
+        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
       />
-    }
-
-    // WILDFIRES
-    if(ev.categories[0].id === 8) {
-      return <FireLocationMarker
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
-      />
-    }
-
-    // FLOODS
-    if(ev.categories[0].id === 9) {
-      return <FloodLocationMarker 
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
-      />
-    }
-
-    // SEVERE STORMS
-    if(ev.categories[0].id === 10) {
-      return <StormLocationMarker 
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
-      />
-    }
-
-    // EARTHQUAKES
-    if(ev.categories[0].id === 16) {
-      return <QuakeLocationMarker 
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
-      />
-    }
-
-    // SNOW
-    if(ev.categories[0].id === 17) {
-      return <SnowLocationMarker 
-        lat={ev.geometries[0].coordinates[1]} 
-        lng={ev.geometries[0].coordinates[0]} 
-        onClick={() => setLocationInfo({ id: ev.id, title: ev.title })} 
-      />
-    }
-
-    return null
-  })
+    );
+  });
   
 
   // GRAB API KEY FROM .ENV
